@@ -2,7 +2,7 @@
 
 This project is a POS for entering orders with customers and products.
 
-Her eis the SQL setup:
+Her is the SQL setup:
 
 CREATE DATABASE POSdb;
 GO
