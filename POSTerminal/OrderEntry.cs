@@ -13,29 +13,126 @@ namespace POSTerminal
 {
     public partial class OrderEntry : Form
     {
+        
+        decimal? payed;
+        decimal amount;
+        decimal balance;
+        int statusInt;
+        bool upgrade = true;
+        string upgradeTo;
         POSdbDataSetTableAdapters.PaymentsTableAdapter ad;
         POSdbDataSetTableAdapters.FullOrderProductsTableAdapter fad;
+        POSdbDataSetTableAdapters.OrdersTableAdapter ot;
+        POSdbDataSet.OrdersDataTable ordersRows;
+        POSdbDataSet.PaymentsDataTable PaymentsRows;
         int index = -1;
         public OrderEntry()
         {
             InitializeComponent();
-            ad =
-               new POSdbDataSetTableAdapters.PaymentsTableAdapter();
-            fad = new POSdbDataSetTableAdapters.FullOrderProductsTableAdapter();
+           
         }
+
+        private void InitializeAdapters()
+        {
+            ad = new POSdbDataSetTableAdapters.PaymentsTableAdapter();
+            fad = new POSdbDataSetTableAdapters.FullOrderProductsTableAdapter();
+            ot = new POSdbDataSetTableAdapters.OrdersTableAdapter();
+            ordersRows = new POSdbDataSet.OrdersDataTable();
+            PaymentsRows = new POSdbDataSet.PaymentsDataTable();
+            
+        }
+
         public OrderEntry(int index)
         {
             InitializeComponent();
             SetFormForEditingAndProductSelection();
-            ad =
-                new POSdbDataSetTableAdapters.PaymentsTableAdapter();
-            fad = new POSdbDataSetTableAdapters.FullOrderProductsTableAdapter();
+            
 
-            lblOrderEntrySumPaid.Text = "sum Paid: " + ad.SumPayed(index);
-            lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
+            setAppearance(index);
         }
+
+        private void setAppearance(int index)
+        {
+            btnOrderEntryStatus.Enabled = true;
+            payed = 0;
+            try
+            {
+                var b = ad.SumPayed(index);
+                if(b != null)
+                {
+                    payed = (decimal)ad.SumPayed(index);
+                }
+               
+                
+            }
+            catch (SqlException e) { MessageBox.Show(e.Message); }
+            catch (System.NullReferenceException e) { MessageBox.Show(e.Message); }
+            try
+            {
+                amount = (decimal)fad.SumOrder(index);
+            }
+            catch (SqlException e){ MessageBox.Show(e.Message); }
+            ordersRows = ot.GetDataByOrderId(index);
+            statusInt = ordersRows.FirstOrDefault().Status;
+            //statusInt = ordersRows.
+            balance = amount - balance;
+            if (balance > 0)
+            {
+                upgrade = false;
+            }else { upgrade = true; }
+            if(upgrade == false)
+            {
+                btnOrderEntryStatus.Text = "Status cannot be changed to Paid until paid up.";
+                btnOrderEntryStatus.Enabled = false;
+                lblOrderEntryStatus.Text = "Status: New";
+            }
+            else
+            {
+                if (statusInt == 1)
+                {
+                    btnOrderEntryStatus.Text = "Set Status to Paid";
+                    lblOrderEntryStatus.Text = "Status: New";
+                }
+                else if (statusInt == 2)
+                {
+                    btnOrderEntryStatus.Text = "Set Status to Ready";
+                    lblOrderEntryStatus.Text = "Status: Paid";
+                }
+                else if(statusInt == 3)
+                {
+                    btnOrderEntryStatus.Text = "Set Status to Out For Delivery";
+                    lblOrderEntryStatus.Text = "Status: Ready For Delivery";
+                }
+                else if (statusInt == 4)
+                {
+                    btnOrderEntryStatus.Text = "Set Status to Delivered";
+                    lblOrderEntryStatus.Text = "Status: Out For Delivery";
+                }
+                else if (statusInt == 5)
+                {
+                    btnOrderEntryStatus.Text = "Deliverd Already";
+                    btnOrderEntryStatus.Enabled = false;
+                    lblOrderEntryStatus.Text = "Status: Delivered";
+                }
+                else if (statusInt == 6)
+                {
+                    btnOrderEntryStatus.Text = "Canceled order cannot be changed";
+                    lblOrderEntryStatus.Text = "Status: Cancelled";
+                    btnOrderEntryStatus.Enabled = false;
+                }
+            }
         
-        
+
+           lblOrderEntrySumPaid.Text = "sum Paid: " + payed;
+           lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
+           lblOrderEntryBalance.Text = "Balance: " + balance;
+            if (upgrade)
+            {
+                
+            }
+            
+        }
+
 
         private void customersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -72,6 +169,7 @@ namespace POSTerminal
                     + "\n";
 
                 lblOrderEntryCustomer.Text = Customer;
+                lblOrderEntryCustomer.Visible = true;
 
 
                 POSdbDataSetTableAdapters.OrdersTableAdapter ta =
@@ -107,17 +205,25 @@ namespace POSTerminal
 
         private void SetFormForEditingAndProductSelection()
         {
-            dgvOrderEntryCustomers.Enabled = false;
-            btnOrderEntrySelectCustomer.Text = "Change Customer";
+            dgvOrderEntryCustomers.Visible = false;
+            btnOrderEntrySelectCustomer.Visible = false;
+            lblOrderEntryCustomer.Visible = true;
+            lblOrderEntryCustomer.Left = 5;
+            lblOrderEntryCustomer.Top = 5;            
             btnOrderEntryAddItems.Visible = true;
             btnOrderEntryDelete.Visible = true;
             btnOrderEntrySetOrder.Visible = true;
             btnOrderEntryAddPayments.Visible = true;
             btnOrderEntryDeleteItem.Visible = true;
+            btnOrderEntryChangeStatus.Visible = true;
+            btnOrderEntryStatus.Visible = true;
             fullOrderProductsDataGridView.Visible = true;
             productsDataGridView.Visible = true;
             lblOrderEntrySumPaid.Visible = true;
             lblOrderEntrySumItems.Visible = true;
+            lblOrderEntryBalance.Visible = true;
+            lblOrderEntryStatus.Visible = true;
+            InitializeAdapters();
         }
 
         void GetOrderProducts()
@@ -145,7 +251,8 @@ namespace POSTerminal
                 oa.Insert(index,(int)selectedRow.Cells[0].Value);
                 GetOrderProducts();
                 fullOrderProductsDataGridView.Refresh();
-                lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
+                setAppearance(index);
+                //lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
             }
         }
 
@@ -193,7 +300,8 @@ namespace POSTerminal
                 ota.Delete((int)row["Id"], (int)row["OrderId"], (int)row["ProductId"]);
                 GetOrderProducts();
                 fullOrderProductsDataGridView.Refresh();
-                lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
+                setAppearance(index);
+               // lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
             }
         }
 
@@ -210,7 +318,18 @@ namespace POSTerminal
 
         private void OrderEntry_Activated(object sender, EventArgs e)
         {
-            lblOrderEntrySumPaid.Text = "sum Paid: " + ad.SumPayed(index);
+            
+        }
+
+        private void btnOrderEntryStatus_Click(object sender, EventArgs e)
+        {
+            Status status = new Status(index);
+            status.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

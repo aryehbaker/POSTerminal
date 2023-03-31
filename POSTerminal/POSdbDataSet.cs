@@ -7,9 +7,12 @@
     }
 }
 
-namespace POSTerminal.POSdbDataSetTableAdapters {
-    
-    
+namespace POSTerminal.POSdbDataSetTableAdapters
+{
+    partial class PaymentsTableAdapter
+    {
+    }
+
     public partial class FullOrderProductsTableAdapter {
     }
 }

@@ -31,48 +31,52 @@ namespace POSTerminal
         {
             this.components = new System.ComponentModel.Container();
             this.dgvOrderEntryCustomers = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pOSdbDataSet = new POSTerminal.POSdbDataSet();
             this.btnOrderEntrySelectCustomer = new System.Windows.Forms.Button();
             this.lblOrderEntryCustomer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOrderEntryAddItems = new System.Windows.Forms.Button();
             this.fullOrderProductsDataGridView = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullOrderProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnOrderEntryDelete = new System.Windows.Forms.Button();
+            this.btnOrderEntrySetOrder = new System.Windows.Forms.Button();
+            this.btnOrderEntryAddPayments = new System.Windows.Forms.Button();
+            this.btnOrderEntryDeleteItem = new System.Windows.Forms.Button();
+            this.lblOrderEntrySumPaid = new System.Windows.Forms.Label();
+            this.lblOrderEntrySumItems = new System.Windows.Forms.Label();
+            this.btnOrderEntryStatus = new System.Windows.Forms.Button();
+            this.btnOrderEntryChangeStatus = new System.Windows.Forms.Button();
+            this.lblOrderEntryBalance = new System.Windows.Forms.Label();
+            this.lblOrderEntryStatus = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnOrderEntryDelete = new System.Windows.Forms.Button();
-            this.btnOrderEntrySetOrder = new System.Windows.Forms.Button();
-            this.btnOrderEntryAddPayments = new System.Windows.Forms.Button();
-            this.btnOrderEntryDeleteItem = new System.Windows.Forms.Button();
+            this.pOSdbDataSet = new POSTerminal.POSdbDataSet();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullOrderProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new POSTerminal.POSdbDataSetTableAdapters.CustomersTableAdapter();
             this.tableAdapterManager = new POSTerminal.POSdbDataSetTableAdapters.TableAdapterManager();
             this.ordersTableAdapter = new POSTerminal.POSdbDataSetTableAdapters.OrdersTableAdapter();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fullOrderProductsTableAdapter = new POSTerminal.POSdbDataSetTableAdapters.FullOrderProductsTableAdapter();
             this.productsTableAdapter = new POSTerminal.POSdbDataSetTableAdapters.ProductsTableAdapter();
-            this.lblOrderEntrySumPaid = new System.Windows.Forms.Label();
-            this.lblOrderEntrySumItems = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderEntryCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullOrderProductsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fullOrderProductsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullOrderProductsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,61 +100,6 @@ namespace POSTerminal
             this.dgvOrderEntryCustomers.Size = new System.Drawing.Size(1273, 118);
             this.dgvOrderEntryCustomers.TabIndex = 0;
             this.dgvOrderEntryCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderEntryCustomers_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FirstName";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "LastName";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Phone";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "Customers";
-            this.customersBindingSource.DataSource = this.pOSdbDataSet;
-            // 
-            // pOSdbDataSet
-            // 
-            this.pOSdbDataSet.DataSetName = "POSdbDataSet";
-            this.pOSdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnOrderEntrySelectCustomer
             // 
@@ -217,35 +166,6 @@ namespace POSTerminal
             this.Id.ReadOnly = true;
             this.Id.Width = 150;
             // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Products";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Products";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // fullOrderProductsBindingSource
-            // 
-            this.fullOrderProductsBindingSource.DataMember = "FullOrderProducts";
-            this.fullOrderProductsBindingSource.DataSource = this.pOSdbDataSet;
-            // 
             // productsDataGridView
             // 
             this.productsDataGridView.AutoGenerateColumns = false;
@@ -265,6 +185,113 @@ namespace POSTerminal
             this.productsDataGridView.Size = new System.Drawing.Size(1259, 171);
             this.productsDataGridView.TabIndex = 7;
             this.productsDataGridView.Visible = false;
+            // 
+            // btnOrderEntryDelete
+            // 
+            this.btnOrderEntryDelete.Location = new System.Drawing.Point(717, 61);
+            this.btnOrderEntryDelete.Name = "btnOrderEntryDelete";
+            this.btnOrderEntryDelete.Size = new System.Drawing.Size(257, 40);
+            this.btnOrderEntryDelete.TabIndex = 8;
+            this.btnOrderEntryDelete.Text = "Delete Order";
+            this.btnOrderEntryDelete.UseVisualStyleBackColor = true;
+            this.btnOrderEntryDelete.Visible = false;
+            this.btnOrderEntryDelete.Click += new System.EventHandler(this.btnOrderEntryDelete_Click);
+            // 
+            // btnOrderEntrySetOrder
+            // 
+            this.btnOrderEntrySetOrder.Location = new System.Drawing.Point(964, 124);
+            this.btnOrderEntrySetOrder.Name = "btnOrderEntrySetOrder";
+            this.btnOrderEntrySetOrder.Size = new System.Drawing.Size(321, 40);
+            this.btnOrderEntrySetOrder.TabIndex = 9;
+            this.btnOrderEntrySetOrder.Text = "Set Order";
+            this.btnOrderEntrySetOrder.UseVisualStyleBackColor = true;
+            this.btnOrderEntrySetOrder.Visible = false;
+            this.btnOrderEntrySetOrder.Click += new System.EventHandler(this.btnOrderEntrySetOrder_Click);
+            // 
+            // btnOrderEntryAddPayments
+            // 
+            this.btnOrderEntryAddPayments.Location = new System.Drawing.Point(390, 124);
+            this.btnOrderEntryAddPayments.Name = "btnOrderEntryAddPayments";
+            this.btnOrderEntryAddPayments.Size = new System.Drawing.Size(321, 40);
+            this.btnOrderEntryAddPayments.TabIndex = 10;
+            this.btnOrderEntryAddPayments.Text = "Add Payments";
+            this.btnOrderEntryAddPayments.UseVisualStyleBackColor = true;
+            this.btnOrderEntryAddPayments.Visible = false;
+            this.btnOrderEntryAddPayments.Click += new System.EventHandler(this.btnOrderEntryAddPayments_Click);
+            // 
+            // btnOrderEntryDeleteItem
+            // 
+            this.btnOrderEntryDeleteItem.Location = new System.Drawing.Point(2, 382);
+            this.btnOrderEntryDeleteItem.Name = "btnOrderEntryDeleteItem";
+            this.btnOrderEntryDeleteItem.Size = new System.Drawing.Size(321, 40);
+            this.btnOrderEntryDeleteItem.TabIndex = 11;
+            this.btnOrderEntryDeleteItem.Text = "Delete Item";
+            this.btnOrderEntryDeleteItem.UseVisualStyleBackColor = true;
+            this.btnOrderEntryDeleteItem.Visible = false;
+            this.btnOrderEntryDeleteItem.Click += new System.EventHandler(this.btnOrderEntryDeleteItem_Click);
+            // 
+            // lblOrderEntrySumPaid
+            // 
+            this.lblOrderEntrySumPaid.AutoSize = true;
+            this.lblOrderEntrySumPaid.Location = new System.Drawing.Point(606, 25);
+            this.lblOrderEntrySumPaid.Name = "lblOrderEntrySumPaid";
+            this.lblOrderEntrySumPaid.Size = new System.Drawing.Size(82, 20);
+            this.lblOrderEntrySumPaid.TabIndex = 12;
+            this.lblOrderEntrySumPaid.Text = "sum Paid: ";
+            this.lblOrderEntrySumPaid.Visible = false;
+            // 
+            // lblOrderEntrySumItems
+            // 
+            this.lblOrderEntrySumItems.AutoSize = true;
+            this.lblOrderEntrySumItems.Location = new System.Drawing.Point(778, 25);
+            this.lblOrderEntrySumItems.Name = "lblOrderEntrySumItems";
+            this.lblOrderEntrySumItems.Size = new System.Drawing.Size(107, 20);
+            this.lblOrderEntrySumItems.TabIndex = 13;
+            this.lblOrderEntrySumItems.Text = "sum of items: ";
+            this.lblOrderEntrySumItems.Visible = false;
+            // 
+            // btnOrderEntryStatus
+            // 
+            this.btnOrderEntryStatus.Location = new System.Drawing.Point(431, 61);
+            this.btnOrderEntryStatus.Name = "btnOrderEntryStatus";
+            this.btnOrderEntryStatus.Size = new System.Drawing.Size(257, 40);
+            this.btnOrderEntryStatus.TabIndex = 14;
+            this.btnOrderEntryStatus.Text = "Status: ";
+            this.btnOrderEntryStatus.UseVisualStyleBackColor = true;
+            this.btnOrderEntryStatus.Visible = false;
+            this.btnOrderEntryStatus.Click += new System.EventHandler(this.btnOrderEntryStatus_Click);
+            // 
+            // btnOrderEntryChangeStatus
+            // 
+            this.btnOrderEntryChangeStatus.Location = new System.Drawing.Point(998, 61);
+            this.btnOrderEntryChangeStatus.Name = "btnOrderEntryChangeStatus";
+            this.btnOrderEntryChangeStatus.Size = new System.Drawing.Size(257, 40);
+            this.btnOrderEntryChangeStatus.TabIndex = 15;
+            this.btnOrderEntryChangeStatus.Text = "Change Status to: ";
+            this.btnOrderEntryChangeStatus.UseVisualStyleBackColor = false;
+            this.btnOrderEntryChangeStatus.Visible = false;
+            // 
+            // lblOrderEntryBalance
+            // 
+            this.lblOrderEntryBalance.AutoSize = true;
+            this.lblOrderEntryBalance.Location = new System.Drawing.Point(972, 25);
+            this.lblOrderEntryBalance.Name = "lblOrderEntryBalance";
+            this.lblOrderEntryBalance.Size = new System.Drawing.Size(73, 20);
+            this.lblOrderEntryBalance.TabIndex = 16;
+            this.lblOrderEntryBalance.Text = "balance: ";
+            this.lblOrderEntryBalance.Visible = false;
+            this.lblOrderEntryBalance.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblOrderEntryStatus
+            // 
+            this.lblOrderEntryStatus.AutoSize = true;
+            this.lblOrderEntryStatus.Location = new System.Drawing.Point(1095, 25);
+            this.lblOrderEntryStatus.MinimumSize = new System.Drawing.Size(200, 0);
+            this.lblOrderEntryStatus.Name = "lblOrderEntryStatus";
+            this.lblOrderEntryStatus.Size = new System.Drawing.Size(200, 20);
+            this.lblOrderEntryStatus.TabIndex = 17;
+            this.lblOrderEntryStatus.Text = "Status: ";
+            this.lblOrderEntryStatus.Visible = false;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -304,49 +331,89 @@ namespace POSTerminal
             this.productsBindingSource.DataMember = "Products";
             this.productsBindingSource.DataSource = this.pOSdbDataSet;
             // 
-            // btnOrderEntryDelete
+            // pOSdbDataSet
             // 
-            this.btnOrderEntryDelete.Location = new System.Drawing.Point(998, 146);
-            this.btnOrderEntryDelete.Name = "btnOrderEntryDelete";
-            this.btnOrderEntryDelete.Size = new System.Drawing.Size(257, 40);
-            this.btnOrderEntryDelete.TabIndex = 8;
-            this.btnOrderEntryDelete.Text = "Delete Order";
-            this.btnOrderEntryDelete.UseVisualStyleBackColor = true;
-            this.btnOrderEntryDelete.Visible = false;
-            this.btnOrderEntryDelete.Click += new System.EventHandler(this.btnOrderEntryDelete_Click);
+            this.pOSdbDataSet.DataSetName = "POSdbDataSet";
+            this.pOSdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnOrderEntrySetOrder
+            // dataGridViewTextBoxColumn6
             // 
-            this.btnOrderEntrySetOrder.Location = new System.Drawing.Point(964, 382);
-            this.btnOrderEntrySetOrder.Name = "btnOrderEntrySetOrder";
-            this.btnOrderEntrySetOrder.Size = new System.Drawing.Size(321, 40);
-            this.btnOrderEntrySetOrder.TabIndex = 9;
-            this.btnOrderEntrySetOrder.Text = "Set Order";
-            this.btnOrderEntrySetOrder.UseVisualStyleBackColor = true;
-            this.btnOrderEntrySetOrder.Visible = false;
-            this.btnOrderEntrySetOrder.Click += new System.EventHandler(this.btnOrderEntrySetOrder_Click);
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Products";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Products";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
             // 
-            // btnOrderEntryAddPayments
+            // dataGridViewTextBoxColumn7
             // 
-            this.btnOrderEntryAddPayments.Location = new System.Drawing.Point(610, 382);
-            this.btnOrderEntryAddPayments.Name = "btnOrderEntryAddPayments";
-            this.btnOrderEntryAddPayments.Size = new System.Drawing.Size(321, 40);
-            this.btnOrderEntryAddPayments.TabIndex = 10;
-            this.btnOrderEntryAddPayments.Text = "Add Payments";
-            this.btnOrderEntryAddPayments.UseVisualStyleBackColor = true;
-            this.btnOrderEntryAddPayments.Visible = false;
-            this.btnOrderEntryAddPayments.Click += new System.EventHandler(this.btnOrderEntryAddPayments_Click);
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
             // 
-            // btnOrderEntryDeleteItem
+            // dataGridViewTextBoxColumn8
             // 
-            this.btnOrderEntryDeleteItem.Location = new System.Drawing.Point(2, 382);
-            this.btnOrderEntryDeleteItem.Name = "btnOrderEntryDeleteItem";
-            this.btnOrderEntryDeleteItem.Size = new System.Drawing.Size(321, 40);
-            this.btnOrderEntryDeleteItem.TabIndex = 11;
-            this.btnOrderEntryDeleteItem.Text = "Delete Item";
-            this.btnOrderEntryDeleteItem.UseVisualStyleBackColor = true;
-            this.btnOrderEntryDeleteItem.Visible = false;
-            this.btnOrderEntryDeleteItem.Click += new System.EventHandler(this.btnOrderEntryDeleteItem_Click);
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // fullOrderProductsBindingSource
+            // 
+            this.fullOrderProductsBindingSource.DataMember = "FullOrderProducts";
+            this.fullOrderProductsBindingSource.DataSource = this.pOSdbDataSet;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "FirstName";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "LastName";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Phone";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Phone";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "Customers";
+            this.customersBindingSource.DataSource = this.pOSdbDataSet;
             // 
             // customersTableAdapter
             // 
@@ -380,31 +447,15 @@ namespace POSTerminal
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
             // 
-            // lblOrderEntrySumPaid
-            // 
-            this.lblOrderEntrySumPaid.AutoSize = true;
-            this.lblOrderEntrySumPaid.Location = new System.Drawing.Point(357, 157);
-            this.lblOrderEntrySumPaid.Name = "lblOrderEntrySumPaid";
-            this.lblOrderEntrySumPaid.Size = new System.Drawing.Size(82, 20);
-            this.lblOrderEntrySumPaid.TabIndex = 12;
-            this.lblOrderEntrySumPaid.Text = "sum Paid: ";
-            this.lblOrderEntrySumPaid.Visible = false;
-            // 
-            // lblOrderEntrySumItems
-            // 
-            this.lblOrderEntrySumItems.AutoSize = true;
-            this.lblOrderEntrySumItems.Location = new System.Drawing.Point(548, 156);
-            this.lblOrderEntrySumItems.Name = "lblOrderEntrySumItems";
-            this.lblOrderEntrySumItems.Size = new System.Drawing.Size(107, 20);
-            this.lblOrderEntrySumItems.TabIndex = 13;
-            this.lblOrderEntrySumItems.Text = "sum of items: ";
-            this.lblOrderEntrySumItems.Visible = false;
-            // 
             // OrderEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 680);
+            this.Controls.Add(this.lblOrderEntryStatus);
+            this.Controls.Add(this.lblOrderEntryBalance);
+            this.Controls.Add(this.btnOrderEntryChangeStatus);
+            this.Controls.Add(this.btnOrderEntryStatus);
             this.Controls.Add(this.lblOrderEntrySumItems);
             this.Controls.Add(this.lblOrderEntrySumPaid);
             this.Controls.Add(this.btnOrderEntryDeleteItem);
@@ -423,12 +474,12 @@ namespace POSTerminal
             this.Activated += new System.EventHandler(this.OrderEntry_Activated);
             this.Load += new System.EventHandler(this.OrderEntry_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderEntryCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullOrderProductsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fullOrderProductsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullOrderProductsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -473,5 +524,9 @@ namespace POSTerminal
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Label lblOrderEntrySumPaid;
         private System.Windows.Forms.Label lblOrderEntrySumItems;
+        private System.Windows.Forms.Button btnOrderEntryStatus;
+        private System.Windows.Forms.Button btnOrderEntryChangeStatus;
+        private System.Windows.Forms.Label lblOrderEntryBalance;
+        private System.Windows.Forms.Label lblOrderEntryStatus;
     }
 }
