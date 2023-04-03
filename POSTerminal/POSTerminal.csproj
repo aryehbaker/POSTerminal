@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddItems.Designer.cs">
-      <DependentUpon>AddItems.cs</DependentUpon>
-    </Compile>
     <Compile Include="Customers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,24 +64,6 @@
     <Compile Include="OrderEntry.Designer.cs">
       <DependentUpon>OrderEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderEntryProducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderEntryProducts.Designer.cs">
-      <DependentUpon>OrderEntryProducts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderList.Designer.cs">
-      <DependentUpon>OrderList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Payment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Payment.Designer.cs">
-      <DependentUpon>Payment.cs</DependentUpon>
-    </Compile>
     <Compile Include="POSdbDataSet.cs">
       <DependentUpon>POSdbDataSet.xsd</DependentUpon>
     </Compile>
@@ -104,15 +80,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Status.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Status.Designer.cs">
-      <DependentUpon>Status.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddItems.resx">
-      <DependentUpon>AddItems.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,12 +88,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderEntry.resx">
       <DependentUpon>OrderEntry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderEntryProducts.resx">
-      <DependentUpon>OrderEntryProducts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Payment.resx">
-      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
@@ -140,9 +101,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Status.resx">
-      <DependentUpon>Status.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="POSdbDataSet.xsc">
       <DependentUpon>POSdbDataSet.xsd</DependentUpon>
     </None>

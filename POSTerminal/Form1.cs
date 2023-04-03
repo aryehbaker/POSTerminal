@@ -34,5 +34,33 @@ namespace POSTerminal
             OrderEntry orderEntry = new OrderEntry();
             orderEntry.Show();
         }
+
+        private void ordersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.ordersBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.pOSdbDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'pOSdbDataSet.OrdersAndAmounts' table. You can move, or remove it, as needed.
+            this.ordersAndAmountsTableAdapter.Fill(this.pOSdbDataSet.OrdersAndAmounts);
+            // TODO: This line of code loads data into the 'pOSdbDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.pOSdbDataSet.Orders);
+
+        }
+
+
+        private void btnOrderReview_Click(object sender, EventArgs e)
+        {
+            if(ordersAndAmountsDataGridView.SelectedRows.Count == 1) {
+                int index = (int)ordersAndAmountsDataGridView.SelectedRows[0].Cells[0].Value;
+                OrderEntry order = new OrderEntry(index);
+                order.ShowDialog();
+            }
+
+        }
     }
 }
