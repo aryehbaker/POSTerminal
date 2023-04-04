@@ -7,7 +7,7 @@ CREATE TABLE Statuses (
  Id INT IDENTITY(1,1) PRIMARY KEY,
  Status VARCHAR(20)
 );
-GO
+
 INSERT INTO Statuses (Status)
 VALUES
 ('New'),
@@ -16,7 +16,7 @@ VALUES
 ('Out for Delivery'),
 ('Delivered'),
 ('Canceled');
-GO
+
 
 CREATE TABLE Customers(
  Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -25,7 +25,7 @@ CREATE TABLE Customers(
  Address VARCHAR(50),
  Phone VARCHAR(15) 
 );
-GO
+
 
 CREATE TABLE Products (
  Id INT IDENTITY (1,1) PRIMARY KEY,
@@ -33,10 +33,6 @@ CREATE TABLE Products (
  Quantity INT,
  Price DECIMAL(10,2)
 );
-GO
-
-
-
 
 CREATE TABLE Orders(
  Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -44,7 +40,6 @@ CREATE TABLE Orders(
  Status INT,
  FOREIGN KEY (CustomerId) REFERENCES Customers (Id),
 );
-GO
 
 CREATE TABLE Payments(
  Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -53,7 +48,7 @@ CREATE TABLE Payments(
  DateOfPayment DATE,
  FOREIGN KEY (OrderId) REFERENCES Orders(Id) ON DELETE CASCADE
 );
-GO
+
 
 CREATE TABLE OrdersProducts(
  Id INT IDENTITY(1,1) PRIMARY KEY,
