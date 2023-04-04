@@ -7371,12 +7371,16 @@ SELECT Id, Products, Quantity, Price FROM Products WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Orders.Id AS Order_Id, SUM(Products.Price) AS Order_Amount, SUM(Payments.Amount) AS Amount_Paid, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
+            this._commandCollection[0].CommandText = @"SELECT Orders.Id AS Order_Id,
+                 (SELECT SUM(Products.Price) AS Expr1
+                 FROM    OrdersProducts INNER JOIN
+                              Products ON OrdersProducts.ProductId = Products.Id
+                 WHERE (OrdersProducts.OrderId = Orders.Id)) AS Order_Amount,
+                 (SELECT SUM(Amount) AS Expr1
+                 FROM    Payments
+                 WHERE (OrderId = Orders.Id)) AS Amount_Paid, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
 FROM   Orders INNER JOIN
-             Customers ON Orders.CustomerId = Customers.Id LEFT OUTER JOIN
-             OrdersProducts ON Orders.Id = OrdersProducts.OrderId LEFT OUTER JOIN
-             Products ON OrdersProducts.ProductId = Products.Id LEFT OUTER JOIN
-             Payments ON Orders.Id = Payments.OrderId
+             Customers ON Orders.CustomerId = Customers.Id
 GROUP BY Orders.Id, Customers.FirstName, Customers.LastName";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }

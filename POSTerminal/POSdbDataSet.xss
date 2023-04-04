@@ -14,7 +14,7 @@
     <Shape ID="DesignTable:Statuses" ZOrder="10" X="1101" Y="70" Height="155" Width="265" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="88" />
     <Shape ID="DesignTable:FullOrderProducts" ZOrder="5" X="842" Y="675" Height="236" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="142" />
     <Shape ID="DesignTable:OrdersAndAmounts" ZOrder="3" X="1253" Y="404" Height="209" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="142" />
-    <Shape ID="DesignTable:CustomerForOrder" ZOrder="2" X="824" Y="111" Height="229" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:CustomerForOrder" ZOrder="2" X="732" Y="93" Height="229" Width="298" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK__Orders__Customer__3D5E1FD2" ZOrder="9" LineWidth="11">
@@ -76,12 +76,12 @@
     <Connector ID="DesignRelation:FK__Orders__Customer__3D5E1FD21" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>824</X>
-          <Y>153</Y>
+          <X>732</X>
+          <Y>135</Y>
         </Point>
         <Point>
           <X>370</X>
-          <Y>153</Y>
+          <Y>135</Y>
         </Point>
       </RoutePoints>
     </Connector>
