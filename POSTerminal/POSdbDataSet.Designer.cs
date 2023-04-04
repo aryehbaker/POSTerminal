@@ -2707,6 +2707,8 @@ namespace POSTerminal {
             
             private global::System.Data.DataColumn columnCustomer_Name;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OrdersAndAmountsDataTable() {
@@ -2774,6 +2776,14 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2809,13 +2819,14 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersAndAmountsRow AddOrdersAndAmountsRow(decimal Order_Amount, decimal Amount_Paid, string Customer_Name) {
+            public OrdersAndAmountsRow AddOrdersAndAmountsRow(decimal Order_Amount, decimal Amount_Paid, string Customer_Name, string Status) {
                 OrdersAndAmountsRow rowOrdersAndAmountsRow = ((OrdersAndAmountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Order_Amount,
                         Amount_Paid,
-                        Customer_Name};
+                        Customer_Name,
+                        Status};
                 rowOrdersAndAmountsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrdersAndAmountsRow);
                 return rowOrdersAndAmountsRow;
@@ -2849,6 +2860,7 @@ namespace POSTerminal {
                 this.columnOrder_Amount = base.Columns["Order_Amount"];
                 this.columnAmount_Paid = base.Columns["Amount_Paid"];
                 this.columnCustomer_Name = base.Columns["Customer_Name"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2862,6 +2874,8 @@ namespace POSTerminal {
                 base.Columns.Add(this.columnAmount_Paid);
                 this.columnCustomer_Name = new global::System.Data.DataColumn("Customer_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_Name);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOrder_Id}, true));
                 this.columnOrder_Id.AutoIncrement = true;
@@ -2874,6 +2888,7 @@ namespace POSTerminal {
                 this.columnAmount_Paid.ReadOnly = true;
                 this.columnCustomer_Name.ReadOnly = true;
                 this.columnCustomer_Name.MaxLength = 101;
+                this.columnStatus.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4182,6 +4197,22 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdersAndAmounts.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'OrdersAndAmounts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdersAndAmounts.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsOrder_AmountNull() {
                 return this.IsNull(this.tableOrdersAndAmounts.Order_AmountColumn);
             }
@@ -4214,6 +4245,18 @@ namespace POSTerminal {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCustomer_NameNull() {
                 this[this.tableOrdersAndAmounts.Customer_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tableOrdersAndAmounts.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tableOrdersAndAmounts.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7355,6 +7398,7 @@ SELECT Id, Products, Quantity, Price FROM Products WHERE (Id = @Id)";
             tableMapping.ColumnMappings.Add("Order_Amount", "Order_Amount");
             tableMapping.ColumnMappings.Add("Amount_Paid", "Amount_Paid");
             tableMapping.ColumnMappings.Add("Customer_Name", "Customer_Name");
+            tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7371,17 +7415,18 @@ SELECT Id, Products, Quantity, Price FROM Products WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Orders.Id AS Order_Id,
+            this._commandCollection[0].CommandText = @"SELECT Orders_1.Id AS Order_Id,
                  (SELECT SUM(Products.Price) AS Expr1
                  FROM    OrdersProducts INNER JOIN
                               Products ON OrdersProducts.ProductId = Products.Id
-                 WHERE (OrdersProducts.OrderId = Orders.Id)) AS Order_Amount,
+                 WHERE (OrdersProducts.OrderId = Orders_1.Id)) AS Order_Amount,
                  (SELECT SUM(Amount) AS Expr1
                  FROM    Payments
-                 WHERE (OrderId = Orders.Id)) AS Amount_Paid, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
-FROM   Orders INNER JOIN
-             Customers ON Orders.CustomerId = Customers.Id
-GROUP BY Orders.Id, Customers.FirstName, Customers.LastName";
+                 WHERE (OrderId = Orders_1.Id)) AS Amount_Paid, Statuses.Status, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
+FROM   Orders AS Orders_1 INNER JOIN
+             Customers ON Orders_1.CustomerId = Customers.Id LEFT OUTER JOIN
+             Statuses ON Orders_1.Status = Statuses.Id
+GROUP BY Orders_1.Id, Customers.FirstName, Customers.LastName, Statuses.Status";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

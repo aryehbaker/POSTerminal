@@ -15,10 +15,7 @@ namespace POSTerminal
         int statusInt;
         bool upgrade = true;
         POSdbDataSetTableAdapters.PaymentsTableAdapter paymentsTA;
-        POSdbDataSetTableAdapters.FullOrderProductsTableAdapter fullOrderProductsTA;
-        POSdbDataSetTableAdapters.OrdersTableAdapter ordersTA;
         POSdbDataSet.OrdersDataTable ordersRows;
-        POSdbDataSet.PaymentsDataTable PaymentsRows;
         int index = -1;
         public OrderEntry()
         {
@@ -32,19 +29,13 @@ namespace POSTerminal
         {
             this.index = index;
             InitializeComponent();
-            SetFormForEditingAndProductSelection();
-            this.ordersTableAdapter.Fill(this.pOSdbDataSet.Orders);
-
             GetOrderData();
             setAppearance(index);
         }
         private void InitializeAdapters()
         {
             paymentsTA = new POSdbDataSetTableAdapters.PaymentsTableAdapter();
-            fullOrderProductsTA = new POSdbDataSetTableAdapters.FullOrderProductsTableAdapter();
-            ordersTA = new POSdbDataSetTableAdapters.OrdersTableAdapter();
             ordersRows = new POSdbDataSet.OrdersDataTable();
-            PaymentsRows = new POSdbDataSet.PaymentsDataTable();
 
         }
 
@@ -54,8 +45,6 @@ namespace POSTerminal
             btnOrderEntryStatus.Enabled = true;
             payed = 0;
             GetOrderProducts();
-            fullOrderProductsDataGridView.Refresh();
-            paymentsTA.Fill(PaymentsRows);
             try
             {
                 var b = paymentsTA.SumPayed(index);
@@ -71,14 +60,14 @@ namespace POSTerminal
             catch (System.NullReferenceException e) { MessageBox.Show(e.Message); }
             try
             {
-                var b = fullOrderProductsTA.SumOrder(index);
+                var b = this.fullOrderProductsTableAdapter.SumOrder(index);
                 if (b != null)
                 {
-                    amount = (decimal)fullOrderProductsTA.SumOrder(index);
+                    amount = (decimal)this.fullOrderProductsTableAdapter.SumOrder(index);
                 }
             }
             catch (SqlException e) { MessageBox.Show(e.Message); }
-            ordersRows = ordersTA.GetDataByOrderId(index);
+            ordersRows = this.ordersTableAdapter.GetDataByOrderId(index);
             statusInt = ordersRows.FirstOrDefault().Status;
             balance = amount - payed;
             if (balance > 0)
@@ -131,11 +120,6 @@ namespace POSTerminal
            lblOrderEntrySumPaid.Text = "sum Paid: " + payed;
            lblOrderEntrySumItems.Text = "sum Amount: " + amount;
            lblOrderEntryBalance.Text = "Balance: " + balance;
-            if (upgrade)
-            {
-                
-            }
-            
         }
 
 
@@ -216,11 +200,10 @@ namespace POSTerminal
                 lblOrderEntryCustomer.Visible = true;
 
 
-                POSdbDataSetTableAdapters.OrdersTableAdapter ta =
-                    new POSdbDataSetTableAdapters.OrdersTableAdapter();
+                
                 POSdbDataSet.OrdersDataTable table = new POSdbDataSet.OrdersDataTable();
                 DataRow row;
-                ta.Fill(table);
+                this.ordersTableAdapter.Fill(table);
                 if (index == -1)
                 {
                     row = table.NewRow();
@@ -228,15 +211,14 @@ namespace POSTerminal
                     row["CustomerId"] = customerId;
                     row["Status"] = 1;
                     table.Rows.Add(row);
-                    ta.Update(table);
+                this.ordersTableAdapter.Update(table);
 
                     index = (int)row["Id"];
                 }
-                
-               
-                
-                SetFormForEditingAndProductSelection();
-                GetOrderProducts();
+
+
+
+            SetFormForEditingAndProductSelection();
 
             
         }
@@ -297,8 +279,6 @@ namespace POSTerminal
                 POSdbDataSetTableAdapters.OrdersProductsTableAdapter oa = 
                     new POSdbDataSetTableAdapters.OrdersProductsTableAdapter();
                 oa.Insert(index,(int)selectedRow.Cells[0].Value);
-                GetOrderProducts();
-                fullOrderProductsDataGridView.Refresh();
                 setAppearance(index);
                 
             }
@@ -308,13 +288,12 @@ namespace POSTerminal
 
         private void btnOrderEntryDelete_Click(object sender, EventArgs e)
         {
-            POSdbDataSetTableAdapters.OrdersTableAdapter ota =
-                new POSdbDataSetTableAdapters.OrdersTableAdapter();
+            
             POSdbDataSet.OrdersDataTable table = new POSdbDataSet.OrdersDataTable();
             DataRow row;
-            ota.Fill(table);
+            this.ordersTableAdapter.Fill(table);
             row = table.FindById(index);
-            ota.Delete((int)row["Id"],(int)row["CustomerId"],(int)row["Status"]);
+            this.ordersTableAdapter.Delete((int)row["Id"],(int)row["CustomerId"],(int)row["Status"]);
             this.Close();
 
             }
@@ -332,10 +311,7 @@ namespace POSTerminal
                 int i = (int)selectedRow.Cells[0].Value;
                 row = table.FindById(i);
                 ota.Delete((int)row["Id"], (int)row["OrderId"], (int)row["ProductId"]);
-                GetOrderProducts();
-                fullOrderProductsDataGridView.Refresh();
                 setAppearance(index);
-               // lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
             }
         }
 
@@ -343,28 +319,30 @@ namespace POSTerminal
 
         private void btnOrderEntryStatus_Click(object sender, EventArgs e)
         {
-            ordersRows = ordersTA.GetDataByOrderId(index);
+            ordersRows = this.ordersTableAdapter.GetDataByOrderId(index);
             statusInt = ordersRows.FirstOrDefault().Status;
             int newStatus = statusInt + 1;
 
             ordersRows.FirstOrDefault()["Status"] = newStatus;
-            ordersTA.Update(ordersRows);
+            this.ordersTableAdapter.Update(ordersRows);
             setAppearance(index);
         }
 
 
         private void btnOrderEntryChangeStatus_Click(object sender, EventArgs e)
         {
-            ordersRows = ordersTA.GetDataByOrderId(index);
+            ordersRows = this.ordersTableAdapter.GetDataByOrderId(index);
             statusInt = ordersRows.FirstOrDefault().Status;
             int newStatus = 6;
             
             ordersRows.FirstOrDefault()["Status"] = newStatus;
-            ordersTA.Update(ordersRows);
+            this.ordersTableAdapter.Update(ordersRows);
            
             btnOrderEntryDeleteItem.Enabled = false;
             btnOrderEntryCancelOrder.Enabled = false;
             btnOrderEntryStatus.Enabled = false;
+            btnOrderEntrySubmitPayment.Enabled = false;
+            btnOrderEntryAddItems.Enabled = false;
         }
 
         private void btnOrderEntrySubmitPayment_Click(object sender, EventArgs e)
@@ -375,6 +353,11 @@ namespace POSTerminal
                 paymentsTA.Insert(index, result, dtpOrderEntryPaymentDate.Value);
                 setAppearance(index);
             }
+        }
+
+        private void btnOrderEntrySetOrder_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
         }
     }
 }

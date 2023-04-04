@@ -331,6 +331,7 @@ namespace POSTerminal
             this.btnOrderEntrySetOrder.Text = "Set Order";
             this.btnOrderEntrySetOrder.UseVisualStyleBackColor = true;
             this.btnOrderEntrySetOrder.Visible = false;
+            this.btnOrderEntrySetOrder.Click += new System.EventHandler(this.btnOrderEntrySetOrder_Click);
             // 
             // btnOrderEntryDeleteItem
             // 

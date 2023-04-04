@@ -45,6 +45,7 @@ namespace POSTerminal
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersAndAmountsBindingSource)).BeginInit();
@@ -128,18 +129,20 @@ namespace POSTerminal
             // ordersAndAmountsDataGridView
             // 
             this.ordersAndAmountsDataGridView.AutoGenerateColumns = false;
+            this.ordersAndAmountsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ordersAndAmountsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ordersAndAmountsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
             this.ordersAndAmountsDataGridView.DataSource = this.ordersAndAmountsBindingSource;
-            this.ordersAndAmountsDataGridView.Location = new System.Drawing.Point(249, 12);
+            this.ordersAndAmountsDataGridView.Location = new System.Drawing.Point(211, 12);
             this.ordersAndAmountsDataGridView.Name = "ordersAndAmountsDataGridView";
             this.ordersAndAmountsDataGridView.RowHeadersWidth = 62;
             this.ordersAndAmountsDataGridView.RowTemplate.Height = 28;
-            this.ordersAndAmountsDataGridView.Size = new System.Drawing.Size(996, 586);
+            this.ordersAndAmountsDataGridView.Size = new System.Drawing.Size(1059, 586);
             this.ordersAndAmountsDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn5
@@ -149,7 +152,7 @@ namespace POSTerminal
             this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 150;
+            this.dataGridViewTextBoxColumn5.Width = 108;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -167,7 +170,7 @@ namespace POSTerminal
             this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 150;
+            this.dataGridViewTextBoxColumn7.Width = 141;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -176,7 +179,15 @@ namespace POSTerminal
             this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 150;
+            this.dataGridViewTextBoxColumn8.Width = 165;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 92;
             // 
             // Form1
             // 
@@ -221,6 +232,7 @@ namespace POSTerminal
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }
 

@@ -431,20 +431,21 @@ WHERE (OrdersProducts.OrderId = @orderId)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrdersAndAmountsTableAdapter" GeneratorDataComponentClassName="OrdersAndAmountsTableAdapter" Name="OrdersAndAmounts" UserDataComponentName="OrdersAndAmountsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="POSdbConnectionString (Settings)" DbObjectName="POSdb.dbo.Orders" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="POSdbConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT Orders.Id AS Order_Id,
+                    <CommandText>SELECT Orders_1.Id AS Order_Id,
                  (SELECT SUM(Products.Price) AS Expr1
                  FROM    OrdersProducts INNER JOIN
                               Products ON OrdersProducts.ProductId = Products.Id
-                 WHERE (OrdersProducts.OrderId = Orders.Id)) AS Order_Amount,
+                 WHERE (OrdersProducts.OrderId = Orders_1.Id)) AS Order_Amount,
                  (SELECT SUM(Amount) AS Expr1
                  FROM    Payments
-                 WHERE (OrderId = Orders.Id)) AS Amount_Paid, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
-FROM   Orders INNER JOIN
-             Customers ON Orders.CustomerId = Customers.Id
-GROUP BY Orders.Id, Customers.FirstName, Customers.LastName</CommandText>
+                 WHERE (OrderId = Orders_1.Id)) AS Amount_Paid, Statuses.Status, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
+FROM   Orders AS Orders_1 INNER JOIN
+             Customers ON Orders_1.CustomerId = Customers.Id LEFT OUTER JOIN
+             Statuses ON Orders_1.Status = Statuses.Id
+GROUP BY Orders_1.Id, Customers.FirstName, Customers.LastName, Statuses.Status</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -455,6 +456,7 @@ GROUP BY Orders.Id, Customers.FirstName, Customers.LastName</CommandText>
               <Mapping SourceColumn="Order_Amount" DataSetColumn="Order_Amount" />
               <Mapping SourceColumn="Amount_Paid" DataSetColumn="Amount_Paid" />
               <Mapping SourceColumn="Customer_Name" DataSetColumn="Customer_Name" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -621,6 +623,13 @@ WHERE (Orders.Id = @orderId)</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
