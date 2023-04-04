@@ -41,10 +41,10 @@ namespace POSTerminal
             this.ordersAndAmountsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersAndAmountsTableAdapter = new POSTerminal.POSdbDataSetTableAdapters.OrdersAndAmountsTableAdapter();
             this.ordersAndAmountsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersAndAmountsBindingSource)).BeginInit();
@@ -130,53 +130,53 @@ namespace POSTerminal
             this.ordersAndAmountsDataGridView.AutoGenerateColumns = false;
             this.ordersAndAmountsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ordersAndAmountsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
             this.ordersAndAmountsDataGridView.DataSource = this.ordersAndAmountsBindingSource;
-            this.ordersAndAmountsDataGridView.Location = new System.Drawing.Point(321, 25);
+            this.ordersAndAmountsDataGridView.Location = new System.Drawing.Point(249, 12);
             this.ordersAndAmountsDataGridView.Name = "ordersAndAmountsDataGridView";
             this.ordersAndAmountsDataGridView.RowHeadersWidth = 62;
             this.ordersAndAmountsDataGridView.RowTemplate.Height = 28;
-            this.ordersAndAmountsDataGridView.Size = new System.Drawing.Size(949, 573);
-            this.ordersAndAmountsDataGridView.TabIndex = 5;
+            this.ordersAndAmountsDataGridView.Size = new System.Drawing.Size(996, 586);
+            this.ordersAndAmountsDataGridView.TabIndex = 4;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "OrderId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "OrderId";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Order_Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Order_Id";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 150;
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Order_Amount";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Order_Amount";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TotalAmount";
-            this.dataGridViewTextBoxColumn3.HeaderText = "TotalAmount";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Amount_Paid";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Amount_Paid";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 150;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TotalPaid";
-            this.dataGridViewTextBoxColumn4.HeaderText = "TotalPaid";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Customer_Name";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Customer_Name";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 150;
             // 
             // Form1
             // 
@@ -212,11 +212,15 @@ namespace POSTerminal
         private POSdbDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource ordersAndAmountsBindingSource;
         private POSdbDataSetTableAdapters.OrdersAndAmountsTableAdapter ordersAndAmountsTableAdapter;
-        private System.Windows.Forms.DataGridView ordersAndAmountsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridView ordersAndAmountsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }
 

@@ -2699,13 +2699,13 @@ namespace POSTerminal {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class OrdersAndAmountsDataTable : global::System.Data.TypedTableBase<OrdersAndAmountsRow> {
             
-            private global::System.Data.DataColumn columnOrderId;
+            private global::System.Data.DataColumn columnOrder_Id;
             
-            private global::System.Data.DataColumn columnCustomerName;
+            private global::System.Data.DataColumn columnOrder_Amount;
             
-            private global::System.Data.DataColumn columnTotalAmount;
+            private global::System.Data.DataColumn columnAmount_Paid;
             
-            private global::System.Data.DataColumn columnTotalPaid;
+            private global::System.Data.DataColumn columnCustomer_Name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2742,33 +2742,33 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OrderIdColumn {
+            public global::System.Data.DataColumn Order_IdColumn {
                 get {
-                    return this.columnOrderId;
+                    return this.columnOrder_Id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CustomerNameColumn {
+            public global::System.Data.DataColumn Order_AmountColumn {
                 get {
-                    return this.columnCustomerName;
+                    return this.columnOrder_Amount;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalAmountColumn {
+            public global::System.Data.DataColumn Amount_PaidColumn {
                 get {
-                    return this.columnTotalAmount;
+                    return this.columnAmount_Paid;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalPaidColumn {
+            public global::System.Data.DataColumn Customer_NameColumn {
                 get {
-                    return this.columnTotalPaid;
+                    return this.columnCustomer_Name;
                 }
             }
             
@@ -2809,13 +2809,13 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersAndAmountsRow AddOrdersAndAmountsRow(string CustomerName, decimal TotalAmount, decimal TotalPaid) {
+            public OrdersAndAmountsRow AddOrdersAndAmountsRow(decimal Order_Amount, decimal Amount_Paid, string Customer_Name) {
                 OrdersAndAmountsRow rowOrdersAndAmountsRow = ((OrdersAndAmountsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        CustomerName,
-                        TotalAmount,
-                        TotalPaid};
+                        Order_Amount,
+                        Amount_Paid,
+                        Customer_Name};
                 rowOrdersAndAmountsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrdersAndAmountsRow);
                 return rowOrdersAndAmountsRow;
@@ -2823,9 +2823,9 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OrdersAndAmountsRow FindByOrderId(int OrderId) {
+            public OrdersAndAmountsRow FindByOrder_Id(int Order_Id) {
                 return ((OrdersAndAmountsRow)(this.Rows.Find(new object[] {
-                            OrderId})));
+                            Order_Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2845,35 +2845,35 @@ namespace POSTerminal {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnOrderId = base.Columns["OrderId"];
-                this.columnCustomerName = base.Columns["CustomerName"];
-                this.columnTotalAmount = base.Columns["TotalAmount"];
-                this.columnTotalPaid = base.Columns["TotalPaid"];
+                this.columnOrder_Id = base.Columns["Order_Id"];
+                this.columnOrder_Amount = base.Columns["Order_Amount"];
+                this.columnAmount_Paid = base.Columns["Amount_Paid"];
+                this.columnCustomer_Name = base.Columns["Customer_Name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnOrderId = new global::System.Data.DataColumn("OrderId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrderId);
-                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerName);
-                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalAmount);
-                this.columnTotalPaid = new global::System.Data.DataColumn("TotalPaid", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalPaid);
+                this.columnOrder_Id = new global::System.Data.DataColumn("Order_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrder_Id);
+                this.columnOrder_Amount = new global::System.Data.DataColumn("Order_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrder_Amount);
+                this.columnAmount_Paid = new global::System.Data.DataColumn("Amount_Paid", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount_Paid);
+                this.columnCustomer_Name = new global::System.Data.DataColumn("Customer_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnOrderId}, true));
-                this.columnOrderId.AutoIncrement = true;
-                this.columnOrderId.AutoIncrementSeed = -1;
-                this.columnOrderId.AutoIncrementStep = -1;
-                this.columnOrderId.AllowDBNull = false;
-                this.columnOrderId.ReadOnly = true;
-                this.columnOrderId.Unique = true;
-                this.columnCustomerName.ReadOnly = true;
-                this.columnCustomerName.MaxLength = 101;
-                this.columnTotalAmount.ReadOnly = true;
-                this.columnTotalPaid.ReadOnly = true;
+                                this.columnOrder_Id}, true));
+                this.columnOrder_Id.AutoIncrement = true;
+                this.columnOrder_Id.AutoIncrementSeed = -1;
+                this.columnOrder_Id.AutoIncrementStep = -1;
+                this.columnOrder_Id.AllowDBNull = false;
+                this.columnOrder_Id.ReadOnly = true;
+                this.columnOrder_Id.Unique = true;
+                this.columnOrder_Amount.ReadOnly = true;
+                this.columnAmount_Paid.ReadOnly = true;
+                this.columnCustomer_Name.ReadOnly = true;
+                this.columnCustomer_Name.MaxLength = 101;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4123,97 +4123,97 @@ namespace POSTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int OrderId {
+            public int Order_Id {
                 get {
-                    return ((int)(this[this.tableOrdersAndAmounts.OrderIdColumn]));
+                    return ((int)(this[this.tableOrdersAndAmounts.Order_IdColumn]));
                 }
                 set {
-                    this[this.tableOrdersAndAmounts.OrderIdColumn] = value;
+                    this[this.tableOrdersAndAmounts.Order_IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CustomerName {
-                get {
-                    try {
-                        return ((string)(this[this.tableOrdersAndAmounts.CustomerNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'OrdersAndAmounts\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableOrdersAndAmounts.CustomerNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal TotalAmount {
+            public decimal Order_Amount {
                 get {
                     try {
-                        return ((decimal)(this[this.tableOrdersAndAmounts.TotalAmountColumn]));
+                        return ((decimal)(this[this.tableOrdersAndAmounts.Order_AmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'OrdersAndAmounts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order_Amount\' in table \'OrdersAndAmounts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOrdersAndAmounts.TotalAmountColumn] = value;
+                    this[this.tableOrdersAndAmounts.Order_AmountColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal TotalPaid {
+            public decimal Amount_Paid {
                 get {
                     try {
-                        return ((decimal)(this[this.tableOrdersAndAmounts.TotalPaidColumn]));
+                        return ((decimal)(this[this.tableOrdersAndAmounts.Amount_PaidColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalPaid\' in table \'OrdersAndAmounts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount_Paid\' in table \'OrdersAndAmounts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOrdersAndAmounts.TotalPaidColumn] = value;
+                    this[this.tableOrdersAndAmounts.Amount_PaidColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCustomerNameNull() {
-                return this.IsNull(this.tableOrdersAndAmounts.CustomerNameColumn);
+            public string Customer_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdersAndAmounts.Customer_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Name\' in table \'OrdersAndAmounts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdersAndAmounts.Customer_NameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCustomerNameNull() {
-                this[this.tableOrdersAndAmounts.CustomerNameColumn] = global::System.Convert.DBNull;
+            public bool IsOrder_AmountNull() {
+                return this.IsNull(this.tableOrdersAndAmounts.Order_AmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalAmountNull() {
-                return this.IsNull(this.tableOrdersAndAmounts.TotalAmountColumn);
+            public void SetOrder_AmountNull() {
+                this[this.tableOrdersAndAmounts.Order_AmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalAmountNull() {
-                this[this.tableOrdersAndAmounts.TotalAmountColumn] = global::System.Convert.DBNull;
+            public bool IsAmount_PaidNull() {
+                return this.IsNull(this.tableOrdersAndAmounts.Amount_PaidColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalPaidNull() {
-                return this.IsNull(this.tableOrdersAndAmounts.TotalPaidColumn);
+            public void SetAmount_PaidNull() {
+                this[this.tableOrdersAndAmounts.Amount_PaidColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalPaidNull() {
-                this[this.tableOrdersAndAmounts.TotalPaidColumn] = global::System.Convert.DBNull;
+            public bool IsCustomer_NameNull() {
+                return this.IsNull(this.tableOrdersAndAmounts.Customer_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCustomer_NameNull() {
+                this[this.tableOrdersAndAmounts.Customer_NameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7351,10 +7351,10 @@ SELECT Id, Products, Quantity, Price FROM Products WHERE (Id = @Id)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "OrdersAndAmounts";
-            tableMapping.ColumnMappings.Add("OrderId", "OrderId");
-            tableMapping.ColumnMappings.Add("CustomerName", "CustomerName");
-            tableMapping.ColumnMappings.Add("TotalAmount", "TotalAmount");
-            tableMapping.ColumnMappings.Add("TotalPaid", "TotalPaid");
+            tableMapping.ColumnMappings.Add("Order_Id", "Order_Id");
+            tableMapping.ColumnMappings.Add("Order_Amount", "Order_Amount");
+            tableMapping.ColumnMappings.Add("Amount_Paid", "Amount_Paid");
+            tableMapping.ColumnMappings.Add("Customer_Name", "Customer_Name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7371,14 +7371,13 @@ SELECT Id, Products, Quantity, Price FROM Products WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT o.Id AS OrderId, c.FirstName + ' ' + c.LastName AS CustomerName, SUM(p.Amount) AS TotalAmount, SUM(paid.Amount) AS TotalPaid
-FROM   Orders AS o INNER JOIN
-             Customers AS c ON o.CustomerId = c.Id INNER JOIN
-             Payments AS p ON o.Id = p.OrderId LEFT OUTER JOIN
-                 (SELECT OrderId, SUM(Amount) AS Amount
-                 FROM    Payments
-                 GROUP BY OrderId) AS paid ON o.Id = paid.OrderId
-GROUP BY o.Id, c.FirstName + ' ' + c.LastName";
+            this._commandCollection[0].CommandText = @"SELECT Orders.Id AS Order_Id, SUM(Products.Price) AS Order_Amount, SUM(Payments.Amount) AS Amount_Paid, { fn CONCAT(Customers.FirstName, { fn CONCAT(' ', Customers.LastName) }) } AS Customer_Name
+FROM   Orders INNER JOIN
+             Customers ON Orders.CustomerId = Customers.Id LEFT OUTER JOIN
+             OrdersProducts ON Orders.Id = OrdersProducts.OrderId LEFT OUTER JOIN
+             Products ON OrdersProducts.ProductId = Products.Id LEFT OUTER JOIN
+             Payments ON Orders.Id = Payments.OrderId
+GROUP BY Orders.Id, Customers.FirstName, Customers.LastName";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

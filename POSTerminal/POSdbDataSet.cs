@@ -9,6 +9,10 @@
 
 namespace POSTerminal.POSdbDataSetTableAdapters
 {
+    partial class OrdersAndAmountsTableAdapter
+    {
+    }
+
     partial class PaymentsTableAdapter
     {
     }
