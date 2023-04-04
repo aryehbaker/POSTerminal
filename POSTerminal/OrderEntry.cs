@@ -30,8 +30,11 @@ namespace POSTerminal
 
         public OrderEntry(int index)
         {
+            this.index = index;
             InitializeComponent();
             SetFormForEditingAndProductSelection();
+            this.ordersTableAdapter.Fill(this.pOSdbDataSet.Orders);
+
             GetOrderData();
             setAppearance(index);
         }
@@ -47,6 +50,7 @@ namespace POSTerminal
 
         private void setAppearance(int index)
         {
+            lblOrderEntryOrderId.Text = "Order Id: " + index;
             btnOrderEntryStatus.Enabled = true;
             payed = 0;
             GetOrderProducts();
@@ -162,48 +166,49 @@ namespace POSTerminal
 
         private void GetOrderData()
         {
-            if (dgvOrderEntryCustomers.SelectedRows.Count > 0 || index != -1)
+            string Customer;
+            int customerId;
+            if (dgvOrderEntryCustomers.SelectedRows.Count > 0)
             {
-                string Customer;
-                int customerId;
+
                 DataGridViewRow selectedRow;
-                if (dgvOrderEntryCustomers.SelectedRows.Count > 0)
-                {
-                    selectedRow = dgvOrderEntryCustomers.SelectedRows[0];
-                    Customer =
-                       selectedRow.Cells[0].Value.ToString()
-                       + "\n" +
-                        selectedRow.Cells[1].Value.ToString()
-                       + "\n" +
-                        selectedRow.Cells[2].Value.ToString()
-                       + "\n" +
-                        selectedRow.Cells[3].Value.ToString()
-                       + "\n";
-                    customerId = (int)selectedRow.Cells[0].Value;
-                }
-                else
-                {
-                    POSdbDataSetTableAdapters.CustomerForOrderTableAdapter adapter =
-                        new POSdbDataSetTableAdapters.CustomerForOrderTableAdapter();
-                    POSdbDataSet.CustomerForOrderDataTable customerForOrderDataTable =
-                        new POSdbDataSet.CustomerForOrderDataTable();
-                    POSdbDataSet.CustomerForOrderRow customerForOrderRow;
 
-                    adapter.Fill(customerForOrderDataTable);
-                    customerForOrderRow = customerForOrderDataTable
-                        .AsEnumerable().FirstOrDefault(r => r.Id == index);
-                    Customer = customerForOrderRow.Id.ToString()
-                       + "\n" +
-                        customerForOrderRow.FirstName.ToString()
-                        + " " + customerForOrderRow.LastName.ToString()
-                         + "\n" +
-                        customerForOrderRow.Address.ToString()
-                        + "\n" +
-                        customerForOrderRow.Phone.ToString();
+                selectedRow = dgvOrderEntryCustomers.SelectedRows[0];
+                Customer =
+                   selectedRow.Cells[0].Value.ToString()
+                   + "\n" +
+                    selectedRow.Cells[1].Value.ToString()
+                   + "\n" +
+                    selectedRow.Cells[2].Value.ToString()
+                   + "\n" +
+                    selectedRow.Cells[3].Value.ToString()
+                   + "\n";
+                customerId = (int)selectedRow.Cells[0].Value;
+            }
+            else if (index != -1)
+            {
+                POSdbDataSetTableAdapters.CustomerForOrderTableAdapter adapter =
+                    new POSdbDataSetTableAdapters.CustomerForOrderTableAdapter();
+                POSdbDataSet.CustomerForOrderDataTable customerForOrderDataTable =
+                    new POSdbDataSet.CustomerForOrderDataTable();
+                POSdbDataSet.CustomerForOrderRow customerForOrderRow;
 
-                    customerId = customerForOrderRow.Id;
+                adapter.FillByOrderId(customerForOrderDataTable,index);
+                customerForOrderRow = customerForOrderDataTable
+                    .FirstOrDefault();
+                Customer = customerForOrderRow.Id.ToString()
+                   + "\n" +
+                    customerForOrderRow.FirstName.ToString()
+                    + " " + customerForOrderRow.LastName.ToString()
+                     + "\n" +
+                    customerForOrderRow.Address.ToString()
+                    + "\n" +
+                    customerForOrderRow.Phone.ToString();
 
-                }
+                customerId = customerForOrderRow.Id;
+
+            }
+            else return;
 
 
 
@@ -227,18 +232,13 @@ namespace POSTerminal
 
                     index = (int)row["Id"];
                 }
-                else
-                {
-                    row = table.FindById(index);
-                    row["CustomerId"] = customerId;
-                    ta.Update(table);
-                }
-                /* OrderEntryProducts p = new OrderEntryProducts(index);
-                 p.ShowDialog();*/
+                
+               
+                
                 SetFormForEditingAndProductSelection();
                 GetOrderProducts();
 
-            }
+            
         }
 
         private void SetFormForEditingAndProductSelection()
@@ -267,6 +267,7 @@ namespace POSTerminal
             lblOrderEntryStatus.Visible = true;
             lblOrderEntryPaymentDate.Visible = true;
             lblOrderEntryPaymentAmount.Visible = true;
+            lblOrderEntryOrderId.Visible = true;
             InitializeAdapters();
         }
 
@@ -276,7 +277,9 @@ namespace POSTerminal
             {
 
                 this.fullOrderProductsTableAdapter.FillOrderProductsFull(this.pOSdbDataSet.FullOrderProducts, index);
-                
+                fullOrderProductsDataGridView.DataSource = this.pOSdbDataSet.FullOrderProducts;
+
+
             }
             catch (System.Exception ex)
             {
@@ -297,7 +300,7 @@ namespace POSTerminal
                 GetOrderProducts();
                 fullOrderProductsDataGridView.Refresh();
                 setAppearance(index);
-                //lblOrderEntrySumItems.Text = "sum Amount" + fad.SumOrder(index);
+                
             }
         }
 
@@ -369,9 +372,7 @@ namespace POSTerminal
             decimal result;
             if (decimal.TryParse(txtOrderEntryPayment.Text, out result))
             {
-                POSdbDataSetTableAdapters.PaymentsTableAdapter pa =
-                    new POSdbDataSetTableAdapters.PaymentsTableAdapter();
-                pa.Insert(index, result, dtpOrderEntryPaymentDate.Value);
+                paymentsTA.Insert(index, result, dtpOrderEntryPaymentDate.Value);
                 setAppearance(index);
             }
         }

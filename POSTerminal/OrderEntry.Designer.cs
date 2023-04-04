@@ -74,6 +74,7 @@ namespace POSTerminal
             this.txtOrderEntryPayment = new System.Windows.Forms.TextBox();
             this.lblOrderEntryPaymentAmount = new System.Windows.Forms.Label();
             this.btnOrderEntrySubmitPayment = new System.Windows.Forms.Button();
+            this.lblOrderEntryOrderId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderEntryCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pOSdbDataSet)).BeginInit();
@@ -484,11 +485,22 @@ namespace POSTerminal
             this.btnOrderEntrySubmitPayment.Visible = false;
             this.btnOrderEntrySubmitPayment.Click += new System.EventHandler(this.btnOrderEntrySubmitPayment_Click);
             // 
+            // lblOrderEntryOrderId
+            // 
+            this.lblOrderEntryOrderId.AutoSize = true;
+            this.lblOrderEntryOrderId.Location = new System.Drawing.Point(427, 25);
+            this.lblOrderEntryOrderId.Name = "lblOrderEntryOrderId";
+            this.lblOrderEntryOrderId.Size = new System.Drawing.Size(75, 20);
+            this.lblOrderEntryOrderId.TabIndex = 23;
+            this.lblOrderEntryOrderId.Text = "Order Id: ";
+            this.lblOrderEntryOrderId.Visible = false;
+            // 
             // OrderEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 680);
+            this.Controls.Add(this.lblOrderEntryOrderId);
             this.Controls.Add(this.btnOrderEntrySubmitPayment);
             this.Controls.Add(this.lblOrderEntryPaymentAmount);
             this.Controls.Add(this.txtOrderEntryPayment);
@@ -572,5 +584,6 @@ namespace POSTerminal
         private System.Windows.Forms.TextBox txtOrderEntryPayment;
         private System.Windows.Forms.Label lblOrderEntryPaymentAmount;
         private System.Windows.Forms.Button btnOrderEntrySubmitPayment;
+        private System.Windows.Forms.Label lblOrderEntryOrderId;
     }
 }
