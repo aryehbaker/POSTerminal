@@ -57,4 +57,3 @@ CREATE TABLE OrdersProducts(
  FOREIGN KEY (OrderId) REFERENCES Orders(Id) ON DELETE CASCADE,
  FOREIGN KEY (ProductId) REFERENCES Products(Id)
 );
-GO
